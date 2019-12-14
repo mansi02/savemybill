@@ -1,0 +1,68 @@
+<%- include ./Partials/header %>
+
+<header>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bill Categories
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/addnewcategory">Add new Category</a></li>
+                    <li><a href="/allcategories">View all Categories</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Bills
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="addnewbill">Add new Bill</a></li>
+                    <li><a href="allbills">View all bills</a></li>
+                </ul>
+            <li><a href="/logout">LogOut</a></li>
+            </li>
+            <li>
+                <div class="navbar-header" style="float: right;"><a class="navbar-brand" href="#">Hi <% if(loginUser){%>
+                        <%= loginUser %> <% } %> ! </a> </div>
+            </li>
+    </div>
+</nav>
+</header>
+<section>
+<div class="container">
+    <div class="row">
+        <h1>Dashboard</h1>
+    </div>
+</div>
+</section>
+<section>
+    <div class="container">
+        <h2 class="text-center py-5">About us</h2>
+        <hr class="w-25 mx-auto py-5">
+            <div>
+                <h1 class="text-center text-primary" >Who are we?</h1>
+                <p class="text-justify" style="margin-bottom:5;">Hi! My name is Mansi Gupta. This is my first Project. This project is basically a project that is build using Node js , Express js, Mongo DB, Mongoose, Bootstrap.
+                    <h4 class="text-center text-primary">What does this do?</h4> 
+                    Here you can save all of your bills like electricity bill, etc.. and access them whenever needed. Get rid of that piles of papers of bill save here your softcopy.
+                </p>
+            </div>
+        </div>
+</section>
+<section style="margin-top:15px;">
+    <form>
+    <div class="container mt-1 " >
+        <div class="row">
+        <h5>Happy to take your suggestions and reviews.</h5>
+        <textarea id="area" rows="3" class="col-md-4"  ></textarea>
+    </div>
+    <div class="form-group">
+    <input type="submit" name="review" value="Submit" class="btn btn-primary " class="form-control " style="margin:1;" >
+</div>
+</div>
+</form>
+</section>
+
+<%- include ./Partials/footer %>

@@ -1,0 +1,53 @@
+<%- include ./Partials/header %>
+<%- include ./Partials/navigationalbar %>
+<div class="container">
+    <div class="row">
+      <h1>All of your Bills</h1>
+      <table class="table table-striped table-primary">
+  
+        <thead>
+          <tr>
+            <th>Category Name</th>
+            <th>Bill details</th>
+            <th>Bill Image</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if(record.length >0) { 
+            record.forEach(function(row){ %>
+          <tr>
+            <td><%= row.CategoryName %></td>
+            <td><%= row.BillDetails %></td>
+            <td><button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal<%= row._id %>"><i class="fa fa-eye"></i></button></td>
+            <td>
+              <!-- <button type="button" class="btn btn-info btn-xs" data-toggle="modal"
+                data-target="#myModal<%= row._id %>"><i class="fa fa-eye"></i></button> -->
+              <!-- <a class="btn btn-primary-xs" href="allbills/edit/<%= row._id %>"><i class="fa fa-edit"></i></a> -->
+              <a class="btn btn-danger-xs" href="allbills/delete/<%= row._id %>" onclick="return confirm('Delete data?')"><i
+                  class="fa fa-minus-circle"></i></a></td>
+          </tr>
+          <div class="modal fade" id="myModal<%= row._id %>" role="dialog">
+            <div class="modal-dialog">
+  
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title"><%= row.Image %></h4>
+                </div>
+                <div class="modal-body">
+                    <img src="./uploads/<%= row.Image %>" alt="Image" style="width:50%;">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% }) } %>
+        </tbody>
+      </table>
+      </div>
+  </div>
+<%- include ./Partials/footer %>
